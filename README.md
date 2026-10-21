@@ -37,11 +37,13 @@ Built with **PostgreSQL**.
 ## Queries (in `queries.sql`)
 
 1. **Unpaid fees** – invoices with a balance greater than 0
-2. **Payment history** – all payments, and payments for a single student
-3. **Total collections** – overall total, by fee type and by payment method
-4. **Overdue payments** – unpaid invoices past their due date, with days overdue
-5. **Outstanding balance per student**
-6. **Discounts given**
+2. **Payment history** – all payments by date
+3. **Payment history for one student**
+4. **Total collections**
+5. **Total collections by payment method**
+6. **Overdue payments** – unpaid invoices past their due date
+7. **Outstanding balance per student**
+8. **Invoices with discounts**
 
 ## How to run
 
