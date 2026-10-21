@@ -1,5 +1,3 @@
--- Sample data
-
 INSERT INTO students VALUES
 (1, 'Aisha',   'Bello',  'JSS1', '08031234567', 'aisha.bello@mail.com'),
 (2, 'Ibrahim', 'Musa',   'JSS2', '08029876543', 'ibrahim.musa@mail.com'),
@@ -15,7 +13,6 @@ INSERT INTO discounts VALUES
 (1, 'Sibling Discount', 10),
 (2, 'Scholarship',      50);
 
--- amount = fee amount minus discount
 INSERT INTO invoices VALUES
 (1, 1, 1, NULL, 50000.00, '2026-09-01', '2026-09-30'),
 (2, 1, 2, NULL, 10000.00, '2026-09-01', '2026-11-30'),
