@@ -5,7 +5,7 @@ Weekly deliverable (B3). A simple PostgreSQL database for managing students, fee
 ## Files
 
 - `database_schema.sql` - creates the tables and the `outstanding_balances` view
-- `sample_payment_records.sql` - sample data (6 students, 4 fee types, 3 discounts, 11 invoices, 9 payments)
+- `sample_payment_records.sql` - sample data (4 students, 3 fee types, 2 discounts, 6 invoices, 5 payments)
 - `queries.sql` - the 8 report queries
 - `query_results.md` - output of each query on the sample data
 - `ERD.png` - ERD diagram
@@ -18,8 +18,8 @@ Weekly deliverable (B3). A simple PostgreSQL database for managing students, fee
 ## Tables
 
 - **students** – student details
-- **fee_types** – the kinds of fees and their amount (Tuition, Exam Fee, Uniform, Transport)
-- **discounts** – discount name and percentage (Sibling, Scholarship, Staff Child)
+- **fee_types** – the kinds of fees and their amount (Tuition, Exam Fee, Transport)
+- **discounts** – discount name and percentage (Sibling, Scholarship)
 - **invoices** – a fee charged to a student, with an optional discount and a due date. `amount` is the amount after discount
 - **payments** – money paid against an invoice. An invoice can be paid in parts
 

@@ -14,15 +14,13 @@ ORDER BY s.first_name;
 ```
 
 ```
- first_name | last_name | invoice_id | balance
+ first_name | last_name | invoice_id | balance  
 ------------+-----------+------------+----------
- Aisha      | Bello     |          2 |  5000.00
- Fatima     | Sani      |          8 | 10000.00
- Fatima     | Sani      |          7 | 30000.00
- Ibrahim    | Musa      |          4 | 20000.00
- Zainab     | Yusuf     |         10 | 20000.00
- Zainab     | Yusuf     |         11 | 20000.00
-(6 rows)
+ Aisha      | Bello     |          2 | 10000.00
+ Fatima     | Sani      |          5 | 20000.00
+ Fatima     | Sani      |          6 | 20000.00
+ Ibrahim    | Musa      |          3 | 25000.00
+(4 rows)
 ```
 
 ## 2. Payment history
@@ -36,18 +34,14 @@ ORDER BY p.payment_date;
 ```
 
 ```
- first_name | last_name | amount_paid | payment_date |  method
+ first_name | last_name | amount_paid | payment_date |  method  
 ------------+-----------+-------------+--------------+----------
  Aisha      | Bello     |    50000.00 | 2026-09-10   | Transfer
- Tunde      | Adeyemi   |    37500.00 | 2026-09-12   | Transfer
  Chinedu    | Okafor    |    10000.00 | 2026-09-15   | Cash
- Zainab     | Yusuf     |    30000.00 | 2026-09-18   | POS
- Ibrahim    | Musa      |    45000.00 | 2026-09-20   | POS
- Fatima     | Sani      |    20000.00 | 2026-09-25   | Transfer
+ Fatima     | Sani      |    30000.00 | 2026-09-18   | Cash
+ Ibrahim    | Musa      |    20000.00 | 2026-09-20   | POS
  Chinedu    | Okafor    |    15000.00 | 2026-09-28   | Transfer
- Aisha      | Bello     |     5000.00 | 2026-10-01   | Cash
- Chinedu    | Okafor    |    15000.00 | 2026-10-05   | Cash
-(9 rows)
+(5 rows)
 ```
 
 ## 3. Payment history for one student
@@ -60,12 +54,11 @@ WHERE i.student_id = 3;
 ```
 
 ```
- payment_date | amount_paid |  method
+ payment_date | amount_paid |  method  
 --------------+-------------+----------
  2026-09-15   |    10000.00 | Cash
  2026-09-28   |    15000.00 | Transfer
- 2026-10-05   |    15000.00 | Cash
-(3 rows)
+(2 rows)
 ```
 
 ## 4. Total collections
@@ -76,9 +69,9 @@ FROM payments;
 ```
 
 ```
- total_collected
+ total_collected 
 -----------------
-       227500.00
+       125000.00
 (1 row)
 ```
 
@@ -91,11 +84,11 @@ GROUP BY method;
 ```
 
 ```
-  method  | total_collected
+  method  | total_collected 
 ----------+-----------------
- Transfer |       122500.00
- POS      |        75000.00
- Cash     |        30000.00
+ Transfer |        65000.00
+ POS      |        20000.00
+ Cash     |        40000.00
 (3 rows)
 ```
 
@@ -111,14 +104,12 @@ ORDER BY ob.due_date;
 ```
 
 ```
- first_name | last_name | balance  |  due_date
+ first_name | last_name | balance  |  due_date  
 ------------+-----------+----------+------------
- Ibrahim    | Musa      | 20000.00 | 2026-09-30
- Zainab     | Yusuf     | 20000.00 | 2026-09-30
- Fatima     | Sani      | 30000.00 | 2026-09-30
- Aisha      | Bello     |  5000.00 | 2026-10-15
- Fatima     | Sani      | 10000.00 | 2026-10-15
-(5 rows)
+ Fatima     | Sani      | 20000.00 | 2026-09-30
+ Ibrahim    | Musa      | 25000.00 | 2026-09-30
+ Fatima     | Sani      | 20000.00 | 2026-10-15
+(3 rows)
 ```
 
 ## 7. Outstanding balance per student
@@ -132,15 +123,13 @@ ORDER BY outstanding DESC;
 ```
 
 ```
- first_name | last_name | outstanding
+ first_name | last_name | outstanding 
 ------------+-----------+-------------
  Fatima     | Sani      |    40000.00
- Zainab     | Yusuf     |    40000.00
- Ibrahim    | Musa      |    20000.00
- Aisha      | Bello     |     5000.00
- Tunde      | Adeyemi   |        0.00
+ Ibrahim    | Musa      |    25000.00
+ Aisha      | Bello     |    10000.00
  Chinedu    | Okafor    |        0.00
-(6 rows)
+(4 rows)
 ```
 
 ## 8. Invoices with discounts
@@ -153,10 +142,9 @@ JOIN discounts d ON d.discount_id = i.discount_id;
 ```
 
 ```
- first_name | last_name |  discount_name   | percentage |  amount
+ first_name | last_name |  discount_name   | percentage |  amount  
 ------------+-----------+------------------+------------+----------
  Ibrahim    | Musa      | Sibling Discount |      10.00 | 45000.00
  Chinedu    | Okafor    | Scholarship      |      50.00 | 25000.00
- Tunde      | Adeyemi   | Staff Child      |      25.00 | 37500.00
-(3 rows)
+(2 rows)
 ```
