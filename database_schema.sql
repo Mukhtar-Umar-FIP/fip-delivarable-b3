@@ -1,6 +1,5 @@
--- School Fees Management Database (PostgreSQL)
--- Run this first, then sample_payment_records.sql
--- Tables: students, fee_types, discounts, invoices, payments
+School Fees Management Database (PostgreSQL)
+Tables: students, fee_types, discounts, invoices, payments
 
 DROP VIEW IF EXISTS outstanding_balances;
 DROP TABLE IF EXISTS payments;
