@@ -2,7 +2,8 @@
 SELECT s.first_name, s.last_name, ob.invoice_id, ob.balance
 FROM outstanding_balances ob
 JOIN students s ON s.student_id = ob.student_id
-WHERE ob.balance > 0;
+WHERE ob.balance > 0
+ORDER BY s.first_name;
 
 -- 2. Payment history
 SELECT s.first_name, s.last_name, p.amount_paid, p.payment_date, p.method
@@ -31,13 +32,15 @@ SELECT s.first_name, s.last_name, ob.balance, ob.due_date
 FROM outstanding_balances ob
 JOIN students s ON s.student_id = ob.student_id
 WHERE ob.balance > 0
-  AND ob.due_date < CURRENT_DATE;
+  AND ob.due_date < CURRENT_DATE
+ORDER BY ob.due_date;
 
 -- 7. Outstanding balance per student
 SELECT s.first_name, s.last_name, SUM(ob.balance) AS outstanding
 FROM students s
 JOIN outstanding_balances ob ON ob.student_id = s.student_id
-GROUP BY s.first_name, s.last_name;
+GROUP BY s.first_name, s.last_name
+ORDER BY outstanding DESC;
 
 -- 8. Invoices with discounts
 SELECT s.first_name, s.last_name, d.discount_name, d.percentage, i.amount
