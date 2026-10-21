@@ -24,15 +24,7 @@ No issues were found in the final sample data.
 - **Inconsistency:** None. Dates are stored as `DATE` (YYYY-MM-DD), amounts as `NUMERIC(10,2)` in Naira, and method labels are spelled the same way throughout.
 - **Referential integrity:** None. Every payment points to a real invoice and every invoice points to a real student.
 
-To confirm the database blocks bad data, these test records were inserted and all were rejected:
-
-| Test record | Result |
-|---|---|
-| Payment of -500 | Rejected (CHECK constraint) |
-| Payment method "Cheque" | Rejected (CHECK constraint) |
-| Payment for invoice 77, which does not exist | Rejected (foreign key) |
-| Invoice with due date before issue date | Rejected (CHECK constraint) |
-| Payment with no amount | Rejected (NOT NULL) |
+To confirm the database blocks bad data, some wrong records were inserted as a test: a payment of -500, a payment method of "Cheque", a payment for an invoice that does not exist, an invoice with a due date before its issue date, and a payment with no amount. The database rejected all of them.
 
 ## 4. Role of AI
 

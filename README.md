@@ -4,14 +4,12 @@ Weekly deliverable (B3). A simple PostgreSQL database for managing students, fee
 
 ## Files
 
-| File | Description |
-|------|-------------|
-| `database_schema.sql` | Creates the tables and the `outstanding_balances` view |
-| `sample_payment_records.sql` | Sample data (6 students, 4 fee types, 3 discounts, 11 invoices, 9 payments) |
-| `queries.sql` | The 8 report queries |
-| `query_results.md` | Output of each query on the sample data |
-| `ERD.png` | ERD diagram |
-| `AI_Data_Quality_Note.md` | Data-quality checks and how AI was used |
+- `database_schema.sql` - creates the tables and the `outstanding_balances` view
+- `sample_payment_records.sql` - sample data (6 students, 4 fee types, 3 discounts, 11 invoices, 9 payments)
+- `queries.sql` - the 8 report queries
+- `query_results.md` - output of each query on the sample data
+- `ERD.png` - ERD diagram
+- `AI_Data_Quality_Note.md` - data-quality checks and how AI was used
 
 ## ERD
 
