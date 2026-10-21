@@ -11,6 +11,8 @@ Built with **PostgreSQL**.
 | `schema.sql` | Creates the tables and the `outstanding_balances` view |
 | `seed.sql` | Sample data (6 students, 4 fee types, 3 discounts, 11 invoices, 9 payments) |
 | `queries.sql` | Report queries |
+| `data_quality.sql` | Data quality checks (each should return 0 rows) |
+| `AI_DATA_QUALITY_NOTE.md` | How AI was used, how results were checked, and the data quality checks |
 | `erd.png` | ERD diagram |
 
 ## ERD
