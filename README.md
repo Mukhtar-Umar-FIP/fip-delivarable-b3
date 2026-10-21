@@ -2,7 +2,7 @@
 
 Weekly deliverable (B3). A simple database for managing students, fee types, invoices, payments, discounts and outstanding balances.
 
-Built with **SQLite**, so no server is needed.
+Built with **PostgreSQL**.
 
 ## Files
 
@@ -11,7 +11,6 @@ Built with **SQLite**, so no server is needed.
 | `schema.sql` | Creates the tables and the `outstanding_balances` view |
 | `seed.sql` | Sample data (6 students, 4 fee types, 3 discounts, 11 invoices, 9 payments) |
 | `queries.sql` | Report queries |
-| `school_fees.db` | Ready-made database with the sample data loaded |
 | `erd.png` | ERD diagram |
 
 ## ERD
@@ -46,14 +45,15 @@ Built with **SQLite**, so no server is needed.
 
 ## How to run
 
-Using the sqlite3 command line:
+Using psql:
 
 ```bash
-sqlite3 school_fees.db < schema.sql
-sqlite3 school_fees.db < seed.sql
-sqlite3 -header -column school_fees.db < queries.sql
+createdb -U postgres school_fees
+psql -U postgres -d school_fees -f schema.sql
+psql -U postgres -d school_fees -f seed.sql
+psql -U postgres -d school_fees -f queries.sql
 ```
 
-Or open `school_fees.db` in [DB Browser for SQLite](https://sqlitebrowser.org/) and run the queries from `queries.sql` in the "Execute SQL" tab.
+Or in pgAdmin: create a database called `school_fees`, open the Query Tool, then run `schema.sql`, `seed.sql` and `queries.sql` in that order.
 
-> Note: the overdue query uses `date('now')`, so the results depend on the day you run it.
+> Note: the overdue query uses `CURRENT_DATE`, so the results depend on the day you run it.

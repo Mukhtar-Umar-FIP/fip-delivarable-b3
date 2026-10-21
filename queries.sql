@@ -1,5 +1,5 @@
 -- Reports
--- date('now') is used as today's date for the overdue check
+-- CURRENT_DATE is used as today's date for the overdue check
 
 -- 1. Unpaid fees (invoices that still have a balance)
 SELECT s.first_name || ' ' || s.last_name AS student,
@@ -61,13 +61,13 @@ SELECT s.first_name || ' ' || s.last_name AS student,
        f.fee_name,
        ob.balance,
        ob.due_date,
-       CAST(julianday('now') - julianday(ob.due_date) AS INTEGER) AS days_overdue
+       CURRENT_DATE - ob.due_date AS days_overdue
 FROM outstanding_balances ob
 JOIN students  s ON s.student_id  = ob.student_id
 JOIN invoices  i ON i.invoice_id  = ob.invoice_id
 JOIN fee_types f ON f.fee_type_id = i.fee_type_id
 WHERE ob.balance > 0
-  AND ob.due_date < date('now')
+  AND ob.due_date < CURRENT_DATE
 ORDER BY days_overdue DESC;
 
 

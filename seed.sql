@@ -43,3 +43,10 @@ INSERT INTO payments VALUES
 (7, 9,  37500.00, '2026-09-12', 'Transfer'),
 (8, 10, 30000.00, '2026-09-18', 'POS'),
 (9, 6,  15000.00, '2026-10-05', 'Cash');
+
+-- move the SERIAL counters past the ids inserted above
+SELECT setval('students_student_id_seq',   (SELECT MAX(student_id)  FROM students));
+SELECT setval('fee_types_fee_type_id_seq', (SELECT MAX(fee_type_id) FROM fee_types));
+SELECT setval('discounts_discount_id_seq', (SELECT MAX(discount_id) FROM discounts));
+SELECT setval('invoices_invoice_id_seq',   (SELECT MAX(invoice_id)  FROM invoices));
+SELECT setval('payments_payment_id_seq',   (SELECT MAX(payment_id)  FROM payments));
