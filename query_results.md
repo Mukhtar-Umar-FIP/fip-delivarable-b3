@@ -2,6 +2,7 @@
 
 Results from running `queries.sql` on the sample data in PostgreSQL 18.
 The overdue query (6) was run on 21 October 2026.
+Each query is followed by its psql output and a pgAdmin screenshot.
 
 ## 1. Unpaid fees
 
@@ -22,6 +23,8 @@ ORDER BY s.first_name;
  Ibrahim    | Musa      |          3 | 25000.00
 (4 rows)
 ```
+
+![Unpaid fees in pgAdmin](screenshots/query1_unpaid_fees.png)
 
 ## 2. Payment history
 
@@ -44,6 +47,8 @@ ORDER BY p.payment_date;
 (5 rows)
 ```
 
+![Payment history in pgAdmin](screenshots/query2_payment_history.png)
+
 ## 3. Payment history for one student
 
 ```sql
@@ -61,6 +66,8 @@ WHERE i.student_id = 3;
 (2 rows)
 ```
 
+![Payment history for one student in pgAdmin](screenshots/query3_student_payment_history.png)
+
 ## 4. Total collections
 
 ```sql
@@ -74,6 +81,8 @@ FROM payments;
        125000.00
 (1 row)
 ```
+
+![Total collections in pgAdmin](screenshots/query4_total_collections.png)
 
 ## 5. Total collections by payment method
 
@@ -91,6 +100,8 @@ GROUP BY method;
  Cash     |        40000.00
 (3 rows)
 ```
+
+![Total collections by payment method in pgAdmin](screenshots/query5_collections_by_method.png)
 
 ## 6. Overdue payments
 
@@ -112,6 +123,8 @@ ORDER BY ob.due_date;
 (3 rows)
 ```
 
+![Overdue payments in pgAdmin](screenshots/query6_overdue_payments.png)
+
 ## 7. Outstanding balance per student
 
 ```sql
@@ -132,6 +145,8 @@ ORDER BY outstanding DESC;
 (4 rows)
 ```
 
+![Outstanding balance per student in pgAdmin](screenshots/query7_outstanding_per_student.png)
+
 ## 8. Invoices with discounts
 
 ```sql
@@ -148,3 +163,5 @@ JOIN discounts d ON d.discount_id = i.discount_id;
  Chinedu    | Okafor    | Scholarship      |      50.00 | 25000.00
 (2 rows)
 ```
+
+![Invoices with discounts in pgAdmin](screenshots/query8_invoices_with_discounts.png)

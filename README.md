@@ -8,6 +8,7 @@ Weekly deliverable (B3). A simple PostgreSQL database for managing students, fee
 - `sample_payment_records.sql` - sample data (4 students, 3 fee types, 2 discounts, 6 invoices, 5 payments)
 - `queries.sql` - the 8 report queries
 - `query_results.md` - output of each query on the sample data
+- `screenshots/` - pgAdmin screenshots of each query result
 - `ERD.png` - ERD diagram
 - `AI_Data_Quality_Note.md` - data-quality checks and how AI was used
 
