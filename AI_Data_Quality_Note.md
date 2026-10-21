@@ -18,17 +18,17 @@ The following issues were considered:
 
 No issues were found in the final sample data.
 
-- **Missing values:** None. Key columns are `NOT NULL`.
+- **Missing values:** None. Key columns are NOT NULL.
 - **Duplicate records:** None. No two payments share the same invoice, amount and date.
 - **Invalid values:** None. All amounts are above 0 and all methods are Cash, Transfer or POS.
-- **Inconsistency:** None. Dates are stored as `DATE` (YYYY-MM-DD), amounts as `NUMERIC(10,2)` in Naira, and method labels are spelled the same way throughout.
+- **Inconsistency:** None. Dates are stored as DATE (YYYY-MM-DD), amounts as NUMERIC(10,2) in Naira, and method labels are spelled the same way throughout.
 - **Referential integrity:** None. Every payment points to a real invoice and every invoice points to a real student.
 
 To confirm the database blocks bad data, some wrong records were inserted as a test: a payment of -500, a payment method of "Cheque", a payment for an invoice that does not exist, an invoice with a due date before its issue date, and a payment with no amount. The database rejected all of them.
 
 ## 4. Role of AI
 
-AI helped by suggesting data-quality checks and reviewing the data for possible problems. SQL constraints (`NOT NULL`, `CHECK`, `FOREIGN KEY`) and queries were used to validate the data.
+AI helped by suggesting data-quality checks and reviewing the data for possible problems. SQL constraints (NOT NULL, CHECK, FOREIGN KEY) and queries were used to validate the data.
 
 ## 5. Limitations
 
